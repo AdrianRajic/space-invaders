@@ -24,7 +24,7 @@ const STATE = {
   gameOver: false
 }
 
-// General purpose functions
+
 function setPosition($element, x, y) {
   $element.style.transform = `translate(${x}px, ${y}px)`;
 }
@@ -53,7 +53,7 @@ function collideRect(rect1, rect2){
     rect2.bottom < rect1.top);
 }
 
-// Enemy 
+
 function createEnemy($container, x, y){
   const $enemy = document.createElement("img");
   $enemy.src = "img/ufo.png";
@@ -84,7 +84,7 @@ function updateEnemies($container){
   }
 }
 
-// Player
+
 function createPlayer($container) {
   STATE.x_pos = GAME_WIDTH / 2;
   STATE.y_pos = GAME_HEIGHT - 50;
@@ -112,7 +112,7 @@ function updatePlayer(){
   }
 }
 
-// Player Laser
+
 function createLaser($container, x, y){
   const $laser = document.createElement("img");
   $laser.src = "img/laser.png";
@@ -147,7 +147,7 @@ function updateLaser($container){
   }
 }
 
-// Enemy Laser
+
 function createEnemyLaser($container, x, y){
   const $enemyLaser = document.createElement("img");
   $enemyLaser.src = "img/enemyLaser.png";
@@ -175,14 +175,14 @@ function updateEnemyLaser($container){
   }
 }
 
-// Delete Laser
+
 function deleteLaser(lasers, laser, $laser){
   const index = lasers.indexOf(laser);
   lasers.splice(index,1);
   $container.removeChild($laser);
 }
 
-// Key Presses
+
 function KeyPress(event) {
   if (event.keyCode === KEY_RIGHT) {
     STATE.move_right = true;
@@ -203,7 +203,6 @@ function KeyRelease(event) {
   }
 }
 
-// Main Update Function
 function update(){
   updatePlayer();
   updateEnemies($container);
@@ -227,12 +226,12 @@ function createEnemies($container) {
   }
 }
 
-// Initialize the Game
+
 const $container = document.querySelector(".main");
 createPlayer($container);
 createEnemies($container);
 
-// Key Press Event Listener
+
 window.addEventListener("keydown", KeyPress);
 window.addEventListener("keyup", KeyRelease);
 update();
