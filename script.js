@@ -227,12 +227,12 @@ function createEnemies($container) {
   }
 }
 
-// Initialize the Game
+
 const $container = document.querySelector(".main");
 createPlayer($container);
 createEnemies($container);
 
-// Key Press Event Listener
+
 window.addEventListener("keydown", KeyPress);
 window.addEventListener("keyup", KeyRelease);
 update();
