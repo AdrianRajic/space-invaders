@@ -56,7 +56,7 @@ function collideRect(rect1, rect2){
 
 function createEnemy($container, x, y){
   const $enemy = document.createElement("img");
-  $enemy.src = "img/ufo.png";
+  $enemy.src = "img/enemy.png";
   $enemy.className = "enemy";
   $container.appendChild($enemy);
   const enemy_cooldown = Math.floor(Math.random()*100);
@@ -89,7 +89,7 @@ function createPlayer($container) {
   STATE.x_pos = GAME_WIDTH / 2;
   STATE.y_pos = GAME_HEIGHT - 50;
   const $player = document.createElement("img");
-  $player.src = "img/spaceship.png";
+  $player.src = "img/hero.png";
   $player.className = "player";
   $container.appendChild($player);
   setPosition($player, STATE.x_pos, STATE.y_pos);
