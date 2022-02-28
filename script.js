@@ -84,7 +84,7 @@ function updateEnemies($container){
   }
 }
 
-// Player
+
 function createPlayer($container) {
   STATE.x_pos = GAME_WIDTH / 2;
   STATE.y_pos = GAME_HEIGHT - 50;
