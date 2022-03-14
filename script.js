@@ -147,17 +147,6 @@ function updateLaser($container){
   }
 }
 
-
-function createEnemyLaser($container, x, y){
-  const $enemyLaser = document.createElement("img");
-  $enemyLaser.src = "img/enemyLaser.png";
-  $enemyLaser.className = "enemyLaser";
-  $container.appendChild($enemyLaser);
-  const enemyLaser = {x, y, $enemyLaser};
-  STATE.enemyLasers.push(enemyLaser);
-  setPosition($enemyLaser, x, y);
-}
-
 function updateEnemyLaser($container){
   const enemyLasers = STATE.enemyLasers;
   for(let i = 0; i < enemyLasers.length; i++){
@@ -175,6 +164,17 @@ function updateEnemyLaser($container){
   }
 }
 
+function createEnemyLaser($container, x, y){
+  const $enemyLaser = document.createElement("img");
+  $enemyLaser.src = "img/enemyLaser.png";
+  $enemyLaser.className = "enemyLaser";
+  $container.appendChild($enemyLaser);
+  const enemyLaser = {x, y, $enemyLaser};
+  STATE.enemyLasers.push(enemyLaser);
+  setPosition($enemyLaser, x, y);
+}
+
+
 
 function deleteLaser(lasers, laser, $laser){
   const index = lasers.indexOf(laser);
@@ -182,6 +182,15 @@ function deleteLaser(lasers, laser, $laser){
   $container.removeChild($laser);
 }
 
+function KeyRelease(event) {
+  if (event.keyCode === KEY_RIGHT) {
+    STATE.move_right = false;
+  } else if (event.keyCode === KEY_LEFT) {
+    STATE.move_left = false;
+  } else if (event.keyCode === KEY_SPACE) {
+    STATE.shoot = false;
+  }
+}
 
 function KeyPress(event) {
   if (event.keyCode === KEY_RIGHT) {
@@ -193,13 +202,12 @@ function KeyPress(event) {
   }
 }
 
-function KeyRelease(event) {
-  if (event.keyCode === KEY_RIGHT) {
-    STATE.move_right = false;
-  } else if (event.keyCode === KEY_LEFT) {
-    STATE.move_left = false;
-  } else if (event.keyCode === KEY_SPACE) {
-    STATE.shoot = false;
+
+function createEnemies($container) {
+  for(var i = 0; i <= STATE.number_of_enemies/2; i++){
+    createEnemy($container, i*80, 100);
+  } for(var i = 0; i <= STATE.number_of_enemies/2; i++){
+    createEnemy($container, i*80, 180);
   }
 }
 
@@ -219,12 +227,7 @@ function update(){
   }
 }
 
-function createEnemies($container) {
-  for(var i = 0; i <= STATE.number_of_enemies/2; i++){
-    createEnemy($container, i*80, 100);
-  } for(var i = 0; i <= STATE.number_of_enemies/2; i++){
-    createEnemy($container, i*80, 180);
-  }
+
 }
 
 
