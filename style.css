@@ -73,7 +73,6 @@ body {
   position: absolute;
   margin-left: -2.5px;
   height: 20px;
-  /* default z-index is 0*/
   z-index: -1;
 }
 
